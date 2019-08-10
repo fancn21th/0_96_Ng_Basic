@@ -1,5 +1,11 @@
-<div>
+<div [ngClass]="{ selected: isSelected }">
   <span>{{ message }}</span>
   <input #myInput type="text" [(ngModel)]="message" />
-  <button (click)="onClick($event, myInput.value)">Click</button>
+  <button
+    (click)="update.emit({ text: message })"
+    (mousedown)="isSelected = true"
+    (mouseup)="isSelected = false"
+  >
+    Click
+  </button>
 </div>

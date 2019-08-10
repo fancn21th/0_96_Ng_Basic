@@ -5,12 +5,13 @@ import { Injectable } from "@angular/core";
 })
 export class MailService {
   message: string = `You've got mail `;
-  messages: string[] = [];
-  constructor() {
-    this.messages = [
-      `I've finish my first email`,
-      `I've finish my second email`,
-      `I've finish my third email`
-    ];
+  messages: any[] = [
+    { id: 0, text: `I've finish my first email` },
+    { id: 1, text: `I've finish my second email` },
+    { id: 2, text: `I've finish my third email` }
+  ];
+  update(id, text) {
+    this.messages = this.messages.map(m => (m.id === id ? { id, text } : m));
   }
+  constructor() {}
 }

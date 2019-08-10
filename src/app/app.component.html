@@ -1,9 +1,10 @@
 <h1>{{ title }}</h1>
-<ul>
-  <app-simple-form
-    *ngFor="let message of mail.messages"
-    [message]="message"
-  ></app-simple-form>
-</ul>
-
 <router-outlet></router-outlet>
+<ul>
+  <li *ngFor="let message of mail.messages">{{ message.text }}</li>
+</ul>
+<app-simple-form
+  *ngFor="let message of mail.messages"
+  [message]="message.text"
+  (update)="onUpdate(message.id, $event.text)"
+></app-simple-form>

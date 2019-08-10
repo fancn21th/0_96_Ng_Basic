@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Component, OnInit, Input, EventEmitter, Output } from "@angular/core";
 
 @Component({
   selector: "app-simple-form",
@@ -7,14 +7,12 @@ import { Component, OnInit, Input } from "@angular/core";
 })
 export class SimpleFormComponent implements OnInit {
   @Input() message;
+  @Output() update = new EventEmitter();
+  isSelected: boolean = false;
 
   constructor() {
-    setInterval(() => (this.message = Math.random().toString()), 1000);
+    // setInterval(() => (this.message = Math.random().toString()), 1000);
   }
 
   ngOnInit() {}
-
-  onClick(event, value) {
-    console.log(event, ":", value);
-  }
 }
