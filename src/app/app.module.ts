@@ -9,7 +9,11 @@ import { MailService } from "./mail.service";
 @NgModule({
   declarations: [AppComponent, SimpleFormComponent],
   imports: [BrowserModule, AppRoutingModule],
-  providers: [MailService],
+  providers: [
+    // MailService,
+    { provide: "mail", useClass: MailService }
+    // { provide: "api", useValue: "provided value of api" }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

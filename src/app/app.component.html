@@ -1,4 +1,6 @@
 <h1>{{ title }}</h1>
-<p>{{ mail.message }}</p>
+<ul>
+  <li *ngFor="let message of mail.messages">{{ message }}</li>
+</ul>
 <app-simple-form></app-simple-form>
 <router-outlet></router-outlet>
