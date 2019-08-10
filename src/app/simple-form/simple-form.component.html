@@ -1,5 +1,5 @@
 <div>
   <span>{{ message }}</span>
-  <input type="text" #myInput />
+  <input #myInput type="text" [(ngModel)]="message" />
   <button (click)="onClick($event, myInput.value)">Click</button>
 </div>

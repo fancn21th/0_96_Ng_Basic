@@ -8,7 +8,9 @@ import { Component, OnInit, Input } from "@angular/core";
 export class SimpleFormComponent implements OnInit {
   @Input() message;
 
-  constructor() {}
+  constructor() {
+    setInterval(() => (this.message = Math.random().toString()), 1000);
+  }
 
   ngOnInit() {}
 
